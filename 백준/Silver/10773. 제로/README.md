@@ -1,3 +1,34 @@
+## 📌 공부 내용 정리
+### 1️⃣ **`ios::sync_with_stdio(false);` 와 `cin.tie(nullptr);`** 
+
+: C++ 표준 입출력의 성능을 끌어올리기 위해 흔히 쓰는 설정
+
+1. `ios::sync_with_stdio(false);`
+   
+ - 기본적으로 C++의 cin/cout은 C의 scanf/printf와 내부 버퍼를 동기화(sync)하도록 되어 있다.
+ - 이 동기화를 끄면(=false), 입출력 버퍼를 따로 관리하게 되어 입출력 속도가 크게 향상됨.
+ - 단, 동기화를 끄면 scanf와 cin을 섞어 쓰는 건 위험해질 수 있으니, 둘 중 하나만 사용해야 함.
+
+2. `cin.tie(nullptr);`
+
+ - 기본 상태에서는 cin이 cout에 “묶여(tied)” 있어서, 입력을 받기 전에 자동으로 cout을 비워(flush) 줍니다.
+ - cin.tie(nullptr)로 묶음을 해제하면, 불필요한 플러시가 발생하지 않아 역시 입출력이 빨라집니다.
+ - 다만, 입력 전후에 출력 버퍼를 수동으로 조절해야 할 경우가 생길 수 있습니다.
+
+<br>
+
+### 2️⃣ **`Stack` 대신 `Vector`을 쓴 이유**
+: 기본적으로 `Vector`는 `push_back`/`pop_back`로 스택처럼 쓸 수 있다.
+
+1. 남아있는 원소 한 번에 **순회(iterate)**하기 위해
+- `for(auto x : vec)` 혹은 `std::accumulate` 로 한 번에 순회해서 합을 구할 수 있다.
+
+2. **버퍼 크기(reserve)**를 효율적으로 제어하기 위해
+- `stack`은 `vector`처럼 미리 `reserve(K)` 해서 한 번에 메모리를 할당할 수는 없다.
+- 반면 `vector`는 `reserve(K)` 으로 한 번에 메모리 할당해 재할당 오버헤드를 줄일 수 있다.
+
+<br>
+
 # [Silver IV] 제로 - 10773 
 
 [문제 링크](https://www.acmicpc.net/problem/10773) 
@@ -35,4 +66,3 @@
 ### 출력 
 
  <p>재민이가 최종적으로 적어 낸 수의 합을 출력한다. 최종적으로 적어낸 수의 합은 2<sup>31</sup>-1보다 작거나 같은 정수이다.</p>
-
