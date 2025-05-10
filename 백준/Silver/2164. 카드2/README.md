@@ -1,3 +1,8 @@
+## 📌 문제 풀이
+맨 앞(front)에서 카드를 버린 다음, 맨 앞 카드를 꺼내어 맨 뒤(back)로 보내야 하고
+
+`deque`는 양쪽 끝에서의 삽입·삭제를 모두 O(1) 에 지원하므로 `deque` 사용
+
 # [Silver IV] 카드2 - 2164 
 
 [문제 링크](https://www.acmicpc.net/problem/2164) 
